@@ -235,7 +235,7 @@ function patchDisplay(cm, updateNumbersFrom, dims) {
       let node = buildLineElement(cm, lineView, lineN, dims)
       container.insertBefore(node, cur)
     } else { // Already drawn
-      while (cur != lineView.node) cur = rm(cur)
+      while (cur && cur != lineView.node) cur = rm(cur)
       let updateNumber = lineNumbers && updateNumbersFrom != null &&
         updateNumbersFrom <= lineN && lineView.lineNumber
       if (lineView.changes) {
